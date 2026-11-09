@@ -3,6 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18084600307"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18084600307');
+</script>
+<!-- Event snippet for Text to Book click - book.myivnurse.com conversion page -->
+<!-- Fires on each click of a "Text to Book" (sms:) link rather than on page load, so only real booking clicks count as conversions. -->
+<script>
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="sms:"]');
+    if (a) {
+      gtag('event', 'conversion', {'send_to': 'AW-18084600307/dfcYCMPfz7QdEPOztK9D'});
+    }
+  }, true);
+</script>
 <title>Book Mobile IV Therapy | My IV Nurse | Pinellas County</title>
 <meta name="description" content="Veteran-owned mobile IV therapy in Pinellas County. A licensed RN comes to your home, hotel or office. Drips from $150. Text 727-452-5274 to book.">
 <link rel="canonical" href="https://book.myivnurse.com/">
@@ -12,26 +30,6 @@
 <meta property="og:url" content="https://book.myivnurse.com/">
 <meta name="theme-color" content="#0B2C5F">
 <style>html,body{margin:0;padding:0;background:#071F45}html{scroll-behavior:smooth}</style>
-<!-- Google tag: GA4 + Google Ads (same IDs as myivnurse.com) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X64WY13QGG"></script>
-<script>
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-X64WY13QGG');gtag('config','AW-18084600307');
-// Track booking actions: text, call and online booking
-document.addEventListener('click',function(e){
-  var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
-  var h=a.getAttribute('href')||'',ev=null;
-  if(h.indexOf('sms:')===0)ev='text_to_book';
-  else if(h.indexOf('tel:')===0)ev='click_to_call';
-  else if(h.indexOf('janeapp.com')>-1)ev='book_online';
-  if(!ev)return;
-  var m=decodeURIComponent(h).match(/book the (.+?) drip/);
-  gtag('event',ev,{link_text:(a.innerText||'').trim().slice(0,60),drip:m?m[1]:'general',page_location:location.href,transport_type:'beacon'});
-  // Google Ads conversions: texts and calls
-  var conv={text_to_book:'AW-18084600307/dfcYCMPfz7QdEPOztK9D',click_to_call:'AW-18084600307/SRu1COKb27QdEPOztK9D'}[ev];
-  if(conv)gtag('event','conversion',{send_to:conv,value:50.0,currency:'USD',transport_type:'beacon'});
-},true);
-</script>
 </head>
 <body>
 <!-- =====================================================================
@@ -53,8 +51,6 @@ document.addEventListener('click',function(e){
 .mivn .btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;border-radius:999px;transition:transform .15s,box-shadow .15s}
 .mivn .btn:hover{transform:translateY(-2px)}
 .mivn .btn-org{background:linear-gradient(180deg,#FFB13B,#F7931E 60%,#E57F0C);color:#fff;box-shadow:0 8px 0 #B9600A,0 14px 28px rgba(247,147,30,.45);border:2px solid #fff}
-.mivn .alt-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-.mivn .btn-wht{background:#fff;color:#0B2C5F;border:2px solid #fff;padding:12px 22px;font-size:16px;box-shadow:0 6px 0 rgba(0,0,0,.18)}
 .mivn .btn-org:hover{box-shadow:0 10px 0 #B9600A,0 18px 32px rgba(247,147,30,.5)}
 /* top bar */
 .mivn .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 28px;background:#fff;position:relative;z-index:3;box-shadow:0 2px 0 var(--yel)}
@@ -223,7 +219,7 @@ document.addEventListener('click',function(e){
 <div class="top">
   <a href="https://myivnurse.com"><img src="logo.png" alt="My IV Nurse"></a>
   <div class="top-r">
-    <a class="top-ph" href="tel:+17274525274"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1596A6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v11H9l-5 4.5V4z"/><path d="M8 9h8M8 12h5"/></svg> 727-452-5274</a>
+    <a class="top-ph" href="sms:+17274525274"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1596A6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v11H9l-5 4.5V4z"/><path d="M8 9h8M8 12h5"/></svg> 727-452-5274</a>
     <a class="btn btn-org" href="#book" style="padding:12px 22px;font-size:15px">Text to Book</a>
   </div>
 </div>
@@ -253,7 +249,7 @@ document.addEventListener('click',function(e){
       <div class="swash"><svg viewBox="0 0 300 22" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:100%;height:14px"><path fill="#FFC72C" d="M3 14C60 4 160 2 297 8l-2 6C170 10 80 12 6 20z"/></svg></div>
       <p class="lead">Veteran-owned mobile IV hydration and vitamin drips. A licensed RN comes to your home, hotel or office.</p>
       <a class="btn btn-org hero-cta" href="#book"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v11H9l-5 4.5V4z"/><path d="M8 9h8M8 12h5"/></svg> Text to Book &middot; 727-452-5274</a>
-      <p class="hero-note"><span style="color:#FBBC04;font-size:16px">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>5.0 on Google</b> (65 reviews)<br>Drips from $150 &nbsp;&bull;&nbsp; No travel fees &nbsp;&bull;&nbsp; Same-day when available &nbsp;&bull;&nbsp; HSA/FSA cards accepted</p>
+      <p class="hero-note"><span style="color:#FBBC04;font-size:16px">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <b>5.0 on Google</b> (63 reviews)<br>Drips from $150 &nbsp;&bull;&nbsp; No travel fees &nbsp;&bull;&nbsp; Same-day when available &nbsp;&bull;&nbsp; HSA/FSA cards accepted</p>
     </div>
     <div class="hero-art"><svg class="ivbag" viewBox="0 0 220 470" aria-hidden="true">
 <defs><linearGradient id="liq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9FBFF"/><stop offset="1" stop-color="#7FD8EE"/></linearGradient>
@@ -408,11 +404,7 @@ document.addEventListener('click',function(e){
         <p style="color:#DDF4FA">Tap below and your message is pre-filled. Add your drip, address and preferred time, and a nurse will confirm availability.</p>
         <a class="btn btn-org" href="sms:+17274525274?&amp;body=Hi%20My%20IV%20Nurse%21%20I%27d%20like%20to%20book%20an%20IV.%0AName%3A%20%0AEmail%3A%20%0AAddress%3A%20%0APreferred%20day%2Ftime%3A%20"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v11H9l-5 4.5V4z"/><path d="M8 9h8M8 12h5"/></svg> Text to Book</a>
         <a class="big-ph" href="sms:+17274525274">727-452-5274</a>
-        <div class="alt-cta">
-          <a class="btn btn-wht" href="tel:+17274525274"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> Call Us</a>
-          <a class="btn btn-wht" href="https://myivnurse.janeapp.com/" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Book Online</a>
-        </div>
-        <p style="text-align:center;color:#9FE3EA;font-size:13px;margin:10px 0 0">Nurses available 8 AM &ndash; 8 PM, 7 days. On a computer? Use Book Online.</p>
+        <p style="text-align:center;color:#9FE3EA;font-size:13px;margin:8px 0 0">On a computer? Text this number from your phone.</p>
       </div>
     </div>
   </div>
@@ -421,7 +413,7 @@ document.addEventListener('click',function(e){
 <!-- GOOGLE REVIEWS -->
 <div class="sec rev">
   <div class="sec-h"><span class="S">Real Clients</span><h2 class="H">Real Google Reviews</h2></div>
-  <a class="gbadge" href="https://maps.google.com/?cid=14962704192945517091" target="_blank"><svg width="34" height="34" viewBox="0 0 48 48" aria-label="Google"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg><span><b>5.0</b> <i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><small>Based on 65 Google reviews</small></span></a>
+  <a class="gbadge" href="https://maps.google.com/?cid=14962704192945517091" target="_blank"><svg width="34" height="34" viewBox="0 0 48 48" aria-label="Google"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg><span><b>5.0</b> <i>&#9733;&#9733;&#9733;&#9733;&#9733;</i><small>Based on 63 Google reviews</small></span></a>
   <div class="rgrid">
     <div class="rc"><span class="q">&ldquo;</span><div class="rtop"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><svg width="22" height="22" viewBox="0 0 48 48" aria-label="Google"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></div><p>What a great experience! Professional, responsive communications, and followed up with us the next day. Edina was fantastic. She brought everything needed and you can tell she is an experienced nurse. Would absolutely use again!</p><div class="rwho"><span class="av">K</span><b>Karl K.</b><small>Google review</small></div></div>
     <div class="rc"><span class="q">&ldquo;</span><div class="rtop"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><svg width="22" height="22" viewBox="0 0 48 48" aria-label="Google"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></div><p>I just got my first IV infusion with Edina today and it was a great experience! She is very personable, thorough and explained everything. I am usually a hard stick BUT she got me first stick with ease. Definitely 10/10 recommend!</p><div class="rwho"><span class="av">A</span><b>Andrea M.</b><small>Google review</small></div></div>
@@ -430,7 +422,7 @@ document.addEventListener('click',function(e){
     <div class="rc"><span class="q">&ldquo;</span><div class="rtop"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><svg width="22" height="22" viewBox="0 0 48 48" aria-label="Google"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></div><p>Edina was my nurse and she was wonderful! She was knowledgeable about each vitamin and the best option for me at the time. I will definitely be using Edina again soon!</p><div class="rwho"><span class="av">J</span><b>Jessica S.</b><small>Google review</small></div></div>
     <div class="rc"><span class="q">&ldquo;</span><div class="rtop"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><svg width="22" height="22" viewBox="0 0 48 48" aria-label="Google"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></div><p>Edina was amazing! She was very knowledgeable and made me feel extremely comfortable during the entire process! I will definitely be coming back to her for any future IVs.</p><div class="rwho"><span class="av">S</span><b>Savanna A.</b><small>Google review</small></div></div>
   </div>
-  <p style="margin:34px 0 0"><a class="btn btn-org" style="padding:14px 28px;font-size:16px" href="https://maps.google.com/?cid=14962704192945517091" target="_blank">Read All 65 Reviews on Google &rarr;</a></p>
+  <p style="margin:34px 0 0"><a class="btn btn-org" style="padding:14px 28px;font-size:16px" href="https://maps.google.com/?cid=14962704192945517091" target="_blank">Read All 63 Reviews on Google &rarr;</a></p>
 </div>
 
 <!-- FINAL CTA -->
