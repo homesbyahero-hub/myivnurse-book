@@ -27,6 +27,9 @@ document.addEventListener('click',function(e){
   if(!ev)return;
   var m=decodeURIComponent(h).match(/book the (.+?) drip/);
   gtag('event',ev,{link_text:(a.innerText||'').trim().slice(0,60),drip:m?m[1]:'general',page_location:location.href,transport_type:'beacon'});
+  // Google Ads conversions: texts and calls
+  var conv={text_to_book:'AW-18084600307/dfcYCMPfz7QdEPOztK9D',click_to_call:'AW-18084600307/SRu1COKb27QdEPOztK9D'}[ev];
+  if(conv)gtag('event','conversion',{send_to:conv,value:50.0,currency:'USD',transport_type:'beacon'});
 },true);
 </script>
 </head>
