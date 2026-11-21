@@ -21,6 +21,25 @@
     }
   }, true);
 </script>
+<!-- Adds the Google Ads click ID (gclid) to every Text to Book message so a booking
+     can be logged in the "MY IV NURSE - Booking Log (Google Ads)" sheet. The ID comes
+     from the ad click URL, or from Google's _gcl_aw cookie on a return visit. -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var id = '';
+    try { id = new URLSearchParams(location.search).get('gclid') || ''; } catch (e) {}
+    if (!id) {
+      var m = document.cookie.match(/(?:^|;\s*)_gcl_aw=GCL\.\d+\.([^;]+)/);
+      if (m) { try { id = decodeURIComponent(m[1]); } catch (e) {} }
+    }
+    if (!/^[\w-]{10,200}$/.test(id)) return;
+    var ref = encodeURIComponent('Ref: ' + id);
+    document.querySelectorAll('a[href^="sms:"]').forEach(function (a) {
+      var h = a.getAttribute('href');
+      a.setAttribute('href', h.indexOf('body=') > -1 ? h + '%0A' + ref : h + '?&body=' + ref);
+    });
+  });
+</script>
 <title>Hangover IV Delivered | Hotel or Home | My IV Nurse Pinellas</title>
 <meta name="description" content="Hangover Recovery IV delivered to your hotel or home anywhere in Pinellas County. A licensed RN comes to you. Text 727-452-5274 to book.">
 <link rel="canonical" href="https://book.myivnurse.com/hangover">
